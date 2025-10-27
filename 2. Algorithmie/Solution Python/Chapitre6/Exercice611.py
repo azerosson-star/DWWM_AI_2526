@@ -7,12 +7,12 @@ n1 = len(t1)
 n2 = len(t2)
 
 # Initialisation de la variable S
-Somme = 0
+somme = 0
 
 # Calcul du produit scalaire des tableaux t1 et t2
 for i in range(n1):
     for j in range(n2):
-        Somme += t1[i] * t2[j]
+        somme += t1[i] * t2[j]
 
 # Affichage du résultat
-print("Le schtroumpf est :", Somme)
+print("Le schtroumpf est :", somme)

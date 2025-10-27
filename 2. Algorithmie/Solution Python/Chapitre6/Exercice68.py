@@ -14,7 +14,7 @@ t = [0] * nb
 for i in range(nb):
     print("Entrez le nombre n°", i + 1)
     t[i] = float(input())
-    if T[i] > 0:
+    if t[i] > 0:
         nbpos += 1
     else:
         nbneg += 1

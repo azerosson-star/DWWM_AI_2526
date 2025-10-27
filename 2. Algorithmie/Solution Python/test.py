@@ -9,5 +9,24 @@
 # b  = input('Entrer une valeur : ')
 # print(b)
 
-print("C'est beau")
-print('tt')
+# print("C'est beau")
+# print('tt')
+
+
+
+
+a=1 
+b=2
+
+# temp = a
+# a = b
+# b=temp
+
+a,b = b,a
+print ( a, b)
+
+c="123"
+d="12g"
+
+print(c.isdigit())
+print(d.isdigit())
