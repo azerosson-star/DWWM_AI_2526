@@ -9,7 +9,7 @@ def generer_combinaison_secrete():
     """Génère une combinaison secrète aléatoire."""
     combinaison_secrete = []
     for _ in range(LONGUEUR_COMBINAISON):
-        combinaison_secrete.append(random.choice(couleurs))
+        combinaison_secrete.append(random.choice(couleurs)) # selectionne au hasard un élément du tableau
     return combinaison_secrete
 
 def afficher_combinaison(combinaison):  
@@ -27,6 +27,7 @@ def verifier_proposition(combinaison_secrete, proposition_joueur):
 
     # Pions bien placés
     for i in range(LONGUEUR_COMBINAISON-1,-1,-1): # on parcours à partir de la fin pour ne pas modifier les positions pour le pop
+        # je veux aller de 3 à 0; 3=len-1; pour traiter le 0, il faut une fin de range à -1; pas de -1 pour reculer
         if combinaison_secrete[i] == proposition_joueur[i]:
             nb_pions_bien_places += 1
             secret.pop(i) # on enleve les elements bien placés pour ne pas les recompter dans les mal placés
@@ -35,7 +36,7 @@ def verifier_proposition(combinaison_secrete, proposition_joueur):
     # Pions mal placés
     for i in range(len(prop)):
         if prop[i] in secret:
-            secret.pop(secret.index(prop[i]))
+            secret.pop(secret.index(prop[i])) # équivaut à secret.remove(prop[i])
             nb_pions_mal_places += 1
 
     return nb_pions_bien_places, nb_pions_mal_places
@@ -43,7 +44,6 @@ def verifier_proposition(combinaison_secrete, proposition_joueur):
 def jouer_manche(combinaison_secrete):
     """Joue une manche du jeu."""
     nb_essais = 0
-    proposition_joueur = None
     affichage = []
 
     while nb_essais < NB_ESSAIS_MAX and proposition_joueur != combinaison_secrete:
@@ -53,7 +53,7 @@ def jouer_manche(combinaison_secrete):
             couleur=-1
             while  couleur <= 0 or couleur > NB_COULEURS:
                 try:
-                    couleur = int(input(f"Saisissez la couleur {i + 1} (1, 2, 3, 4) : "))
+                    couleur = int(input(f"Saisissez la couleur {i + 1} {couleurs} : "))
                 except ValueError:
                     print("Erreur : Saisie incorrecte. Veuillez saisir un nombre entier.")
             proposition_joueur.append(couleur)
