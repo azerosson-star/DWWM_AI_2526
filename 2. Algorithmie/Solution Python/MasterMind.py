@@ -45,7 +45,7 @@ def jouer_manche(combinaison_secrete):
     """Joue une manche du jeu."""
     nb_essais = 0
     affichage = []
-
+    proposition_joueur=None
     while nb_essais < NB_ESSAIS_MAX and proposition_joueur != combinaison_secrete:
         # Proposition du joueur
         proposition_joueur = []
