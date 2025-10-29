@@ -5,6 +5,7 @@ def sont_consecutifs(tab):
 def main():
     # Saisie des valeurs et rangement dans un tableau
     valeurs = []
+    valeur=""
     while valeur.lower() != 'q':
         valeur = input("Entrez une valeur (ou 'q' pour terminer) : ")
         try:
