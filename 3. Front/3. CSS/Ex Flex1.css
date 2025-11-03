@@ -1,0 +1,42 @@
+
+div {
+    display: flex;
+    flex: 1;
+}
+
+.colonne {
+    flex-direction: column;
+}
+
+.espace {
+    flex: 0.1;
+}
+
+.espaceV {
+    display: block;
+    height: 2vh;
+}
+
+.bleu {
+    background-color: blue;
+    height: 100vh;
+    padding: 5vh;
+}
+
+.gris {
+    background-color: grey;
+
+}
+
+.jaune {
+    background-color: yellow;
+    flex: 3;
+}
+
+.vert {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+}
