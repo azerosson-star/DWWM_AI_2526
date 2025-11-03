@@ -1,0 +1,39 @@
+/* Modification de balise */
+section
+{
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    /* epaisseur type couleur */
+    /* margin: 10px; marge exterieur */
+    padding: 15px;   /* marge interieur */
+
+    margin: 0vw 25vw ;
+/* 
+    background-color:#5cd3768a;
+    color: #cc3232; */
+
+    font-size: 1.5rem;
+
+    /* width: 50vw; */
+}
+
+
+h1{
+    font-size: 3rem
+}
+
+.couleurRouge{
+    color: red;
+}
+.fondVert{
+    background-color: lightgreen ;
+}
+
+.bordEpais{
+    border: 1.5rem solid black;
+}
+
+#section2{
+    padding: 3rem;
+    background-color: #fff;
+}

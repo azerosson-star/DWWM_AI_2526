@@ -1,0 +1,32 @@
+main {
+    background-color: #121212;
+    margin: 2rem;
+    display: flex;
+    
+    justify-content:center ;
+    align-content: flex-end;
+}
+
+div {
+    height: 20vh;
+    /* flex: 1; */
+    color: white;
+}
+
+.vert {
+    display: flex;
+    /* flex-direction: column; */
+    background-color: green;
+}
+
+.bleu {
+    /* flex:2; */
+    background-color: blue;
+}
+
+.rouge {
+    background-color: red;
+}
+.enfant{
+    background-color: #afe06e63;
+}
