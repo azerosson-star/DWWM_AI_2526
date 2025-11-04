@@ -1,0 +1,40 @@
+/*  BALISES */
+
+div{
+    display: flex;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+header{
+    background-image: url(./../IMG/header.jpg);
+    background-position: top;
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+}
+
+
+/* FLEX */
+
+.flexDemi{
+    flex:0.5;
+}
+
+.flexDouble{
+    flex:2;
+}
+
+/*  CLASSES */
+
+.titre{
+    font-family: Impact,Charcoal, sans-serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: white 0.1rem 0.1rem 0.2rem;
+}
