@@ -19,6 +19,7 @@ div {
 
 .bleu {
     background-color: blue;
+    height:200vh;
     padding: 5vh;
 }
 
@@ -29,7 +30,6 @@ div {
 
 .jaune {
     background-color: yellow;
-    flex: 3;
 }
 
 .vert {
@@ -38,4 +38,18 @@ div {
 
 .orange {
     background-color: orange;
+    padding: 2rem;
+}
+img {
+    height:100%;
+    width: auto;
+}
+.sansPadding {
+    padding: unset;
+    flex: 0.1;
+    
+}
+
+.orange div img{
+    max-width: fit-content;
 }
