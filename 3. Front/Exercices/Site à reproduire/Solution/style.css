@@ -1,0 +1,177 @@
+/*****   GENERAL   *****/
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div,
+header,
+footer,
+nav,
+article {
+    display: flex;
+    flex: 1;
+}
+
+img,
+video {
+    width: 100%;
+}
+
+.colonne {
+    flex-direction: column;
+}
+
+body {
+    background-image: url("./../images/bg.jpg");
+    background-size: cover;
+}
+
+.espace {
+    height: 25vh;
+}
+
+.espaceHor {
+    flex: 0.5;
+}
+
+/*****   Header  Footer  *****/
+header {
+    background-image: url("./../images/sky.jpg");
+    background-size: cover;
+    padding: 2vw;
+}
+
+footer {
+    background-image: url("./../images/pp.jpg");
+    background-size: cover;
+    padding: 2vw;
+}
+
+.titre {
+    flex: 3;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: 800;
+    letter-spacing: 0.225em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.logo {
+    padding: 2vw;
+}
+
+
+
+/*****   Contenu   *****/
+.partie {
+    display: block;
+}
+
+.texte {
+    background-color: white;
+}
+
+.texteMiniature {
+    align-self: center;
+    justify-content: center;
+    padding: 5vh 0;
+    text-align: center;
+    font-size: 1.35em;
+    line-height: 1.75em;
+    font-weight: 800;
+    letter-spacing: 0.225em;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    background-size: cover;
+}
+
+.texteTitre {
+    align-self: center;
+    justify-content: center;
+    padding: 5vh 0;
+    text-align: center;
+    font-size: 1.35em;
+    line-height: 1.75em;
+    font-weight: 800;
+    letter-spacing: 0.225em;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    flex: 0.5;
+}
+
+.texteDetail {
+    align-self: center;
+    justify-content: center;
+    padding: 0 5vh;
+    text-align: justify;
+    line-height: 1.5em;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.tailleMax {
+    font-size: 3em;
+}
+
+
+/***** LES IMAGES MINIATURES *****/
+#id8 {
+    background-image: url(./../images/08.jpg);
+    color: wheat;
+}
+
+#id7 {
+    background-image: url(./../images/07.jpg);
+}
+
+#id6 {
+    background-image: url(./../images/06.jpg);
+}
+
+#id5 {
+    background-image: url(./../images/05.jpg);
+}
+
+#id4 {
+    background-image: url(./../images/04.jpg);
+}
+
+#id3 {
+    background-image: url(./../images/03.jpg);
+}
+
+#id2 {
+    background-image: url(./../images/02.jpg);
+}
+
+#id1 {
+    background-image: url(./../images/01.jpg);
+    color: wheat;
+}
+
+
+@media (max-width:800px) {
+
+    .deco {
+        flex: 0.5;
+    }
+    .espaceHor{
+        flex: 0.2;
+    }
+    .espace{
+        height: 10vh;
+    }
+    .titre{
+        font-size: 1.8em;
+    }
+    .texteTitre{
+        letter-spacing: normal;
+    }
+    .tailleMax{
+        font-size: 1.5em;
+    }
+    .texteMiniature{
+        letter-spacing: normal;
+        font-size: 1em;
+    }
+}

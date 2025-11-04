@@ -1,0 +1,54 @@
+@media screen and (max-width: 1200px) {
+    #container {
+        width: 90%;
+    }
+
+    header {
+        height: 4em;
+    }
+
+    #titre {
+        font-size: 3em;
+    }
+
+    .btn {
+        font-size: .5em;
+    }
+
+    #titrebox {
+        font-size: 1.5em;
+    }
+
+    .textbox {
+        font-size: 1em;
+    }
+
+
+}
+
+@media screen and (max-width: 800px) {
+    #container {
+        width: 100%;
+    }
+
+    header {
+        height: 3em;
+    }
+
+    #titre {
+        font-size: 2em;
+    }
+
+    #titrebox {
+        font-size: 1.1em;
+    }
+
+    .textbox {
+        flex-direction: column;
+    }
+
+    #imgSemaine {
+        width: 35vw;
+
+    }
+}
