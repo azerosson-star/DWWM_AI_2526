@@ -19,6 +19,7 @@ div {
 
 .bleu {
     background-color: blue;
+    height: 100vh;
     padding: 5vh;
 }
 
@@ -29,7 +30,7 @@ div {
 
 .jaune {
     background-color: yellow;
-    flex: 3;
+
 }
 
 .vert {
@@ -38,4 +39,11 @@ div {
 
 .orange {
     background-color: orange;
+}
+
+.bleuClair{
+    background-color: lightblue;
+}
+#grisJaune{
+    flex:3;
 }

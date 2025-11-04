@@ -18,24 +18,33 @@ div {
 }
 
 .bleu {
-    background-color: blue;
+    border: 5px solid blue;
+    height: 100vh;
     padding: 5vh;
 }
 
 .gris {
-    background-color: grey;
+    border: 5px solid grey;
 
 }
 
 .jaune {
-    background-color: yellow;
-    flex: 3;
+    border: 5px solid yellow;
 }
 
 .vert {
-    background-color: green;
+    border: 5px solid green;
 }
 
 .orange {
-    background-color: orange;
+    border: 5px solid orange;
+}
+.flex5{
+    flex:5;
+}
+.flex3{
+    flex:3
+}
+.flex05{
+    flex: 0.5;
 }
