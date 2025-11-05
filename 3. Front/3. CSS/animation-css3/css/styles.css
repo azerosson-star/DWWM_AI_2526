@@ -86,7 +86,7 @@ a {
     background-color: #2ddbdb;
   }
   50% {
-    background-color: #48c6c6;
+    background-color: #697070;
   }
   100% {
     background-color: #126a6a;
@@ -103,7 +103,7 @@ a {
 /* ------------------------------ HEADER -- */
 header {
   height: 200px;
-  animation: couleur 3s infinite;
+  animation: couleur 5s infinite;
 }
 header h1 {
   text-align: center;

@@ -181,3 +181,6 @@
 .fa-syntheses::before{
     content: "\F00A";
 }
+.fa-truck::before{
+    content: "\F0D1";
+}

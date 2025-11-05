@@ -101,31 +101,33 @@ textarea:focus {
     border-radius: 4px
 }
 
+/* premier */
 .demo-list li:first-child {
     background: #f0f7ff;
     font-weight: 700
 }
 
-/* premier */
+/* dernier */
 .demo-list li:last-child {
     background: #f7fff0
 }
 
-/* dernier */
+/* 2ème */
 .demo-list li:nth-child(2) {
     background: #fff7e6
 }
 
-/* 2ème */
+
 .demo-list li:nth-child(odd) {
     opacity: .95
 }
 
 /* REQUIRED et :not */
 input[required] {
-    border: 2px solid #f5c6cb;
+    border: 2px solid #e63e4f;
     padding: 4px
 }
+
 
 input:valid {
     border-color: #b8e994
