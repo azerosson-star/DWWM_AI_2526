@@ -7,10 +7,10 @@ div{
 }
 
 
-.grid2x3{
+.grid4x5{
     display: grid;
-    grid-template-columns: 1fr  1fr ;
-    grid-template-rows: 1fr 3fr 1fr ;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    grid-template-rows:  1.5fr 1fr 1fr 1.5fr 1.5fr  ;
     /* on reparti l'espace en fraction proportionnelle */
     row-gap: 1rem;
     /* espace entre 2 lignes */
@@ -20,6 +20,13 @@ div{
 
 .spanColonne2{
     grid-column: span 2;
+}
+
+.spanColonne4{
+    grid-column: span 4;
+}
+.spanRow3{
+    grid-row: span 3;
 }
 .bleu {
     background-color: blue;
