@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>pseudo-classes CSS </title>
+    <link rel="stylesheet" href="./../3. CSS/Pseudo.css">
+</head>
+
+<body>
+    <header>
+        <h1>Pseudo-classes CSS</h1>
+        <nav>
+            <a href="#" class="nav-link">Accueil</a>
+            <a href="#" class="nav-link">À propos</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>État des liens</h2>
+            <p>Essayez : <a href="#" class="demo-visited">lien non visité</a> et <a href="#" class="demo-visited">un
+                    autre lien</a>.</p>
+            <p>Survolez les liens pour voir <code>:hover</code> et cliquez pour voir <code>:active</code>.</p>
+        </section>
+
+        <section>
+            <h2>Boutons et focus</h2>
+            <button class="btn">Bouton normal</button>
+            <button class="btn" disabled>Button désactivé</button>
+            <input type="text" placeholder="Cliquez ici (focus)" />
+        </section>
+
+        <section>
+            <h2>Liste (first/last/nth)</h2>
+            <ul class="demo-list">
+                <li>Élément 1</li>
+                <li>Élément 2</li>
+                <li>Élément 3</li>
+                <li>Élément 4</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Formulaire (required / checked / :not)</h2>
+            <form>
+                <label>
+                    <input type="checkbox" name="news" /> S'abonner
+                </label>
+                <br>
+                <label>
+                    Couleur préférée :
+                    <select>
+                        <option value="">-- choisi --</option>
+                        <option>Bleu</option>
+                        <option>Vert</option>
+                    </select>
+                </label>
+                <br>
+                <label>
+                    Email (requis) : <input type="email" required placeholder="exemple@mail.com">
+                </label>
+            </form>
+        </section>
+
+        <section>
+            <h2>Pseudo-éléments (::before / ::after)</h2>
+            <p class="quote">Ceci est une citation stylée.</p>
+        </section>
+
+    </main>
+
+   
+</body>
+
+</html>
