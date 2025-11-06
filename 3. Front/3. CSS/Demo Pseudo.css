@@ -1,0 +1,72 @@
+
+html, menu, main, body, div, a, header, footer, article, section, aside, fieldset, label, input, select {
+    display: flex;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.colonne, body{
+    flex-direction: column;
+}
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    row-gap: 1rem;
+    column-gap: 2rem;
+}
+
+.grid3 {
+
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid div:first-child, .grid div:nth-child(2) , .grid div:nth-child(3)
+{
+    font-weight: 900;
+    background-color: black;
+    color: white;
+}
+
+
+.grid div:last-child, .grid div:nth-last-child(3) 
+{
+    font-weight: 900;
+    border: 1px black solid;
+}
+
+/* Boutons */
+
+button{
+    border: 2px solid darkblue;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    background-color: lightblue;
+}
+
+button:hover{
+    box-shadow: 0.1rem 0.2rem gray;
+    background-color: rgb(99, 165, 226);
+}
+
+/* focus */
+
+input:focus{
+    background-color: wheat;
+}
+
+.befor::before{
+    content: "*";
+    margin-right: 1rem;
+  
+}
+
+/* .befor[required]::before, .befor input[required]::before{
+    content: "*";
+    margin-right: 1rem;
+} */
