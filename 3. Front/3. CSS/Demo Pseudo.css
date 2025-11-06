@@ -22,7 +22,6 @@ html, menu, main, body, div, a, header, footer, article, section, aside, fieldse
 }
 
 .grid3 {
-
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -60,13 +59,14 @@ input:focus{
     background-color: wheat;
 }
 
-.befor::before{
-    content: "*";
-    margin-right: 1rem;
-  
-}
-
-/* .befor[required]::before, .befor input[required]::before{
+/* .befor::before{
     content: "*";
     margin-right: 1rem;
 } */
+
+/* une div qui a un enfant qui est requis */
+div:has([required])::before{
+    content: "*";
+    margin-right: 3rem;
+    color: red;
+} 
