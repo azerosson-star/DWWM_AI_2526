@@ -1,0 +1,55 @@
+/**** MENU ***/
+
+body, nav, menu{
+    display: flex;
+    color: white;
+    flex: 1;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+menu a>div,
+menu>div {
+    padding: 1.2rem 0.4rem;
+    justify-content: center;
+    margin: 0.3rem 0.5rem;
+    background-color: #f1bfbf;
+    cursor: pointer;
+
+}
+
+menu .relative,
+menu>a div {
+    border-radius: 5px;
+    color: black;
+}
+
+
+
+.sous-menu a>div {
+    padding: 0.8em 2rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    margin: 0;
+    color: black;
+}
+
+menu a>div:hover,
+menu>div:hover {
+    background-color: #a77676;
+}
+
+.sous-menu{
+    display: none;
+}
+
+nav div:hover .sous-menu {
+    display: block;
+}
+
