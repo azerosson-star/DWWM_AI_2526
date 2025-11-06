@@ -16,7 +16,10 @@ nav {
 }
 
 menu a>div,
-menu>div {
+menu>div { /* menu  avec a comme enfant et une div directement sous a 
+    ou menu avec une div suivi d'un a
+    
+    Defini les boutons au repos*/
     padding: 1.2rem 0.4rem;
     justify-content: center;
     margin: 0.3rem 0.5rem;
@@ -25,7 +28,7 @@ menu>div {
 
 }
 
-menu .relative,
+menu .titreMenu,
 menu>a div {
     border-radius: 5px;
     color: black;
@@ -40,15 +43,18 @@ menu>a div {
     color: black;
 }
 
+/* changement de couleur au survol */
 menu a>div:hover,
 menu>div:hover {
     background-color: #a77676;
 }
 
+/* masque le sous menu */
 .sous-menu{
     display: none;
 }
 
+/* montre le sous menu au survol de la div au dessus */
 nav div:hover .sous-menu {
     display: block;
 }

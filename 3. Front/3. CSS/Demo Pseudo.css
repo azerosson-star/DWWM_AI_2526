@@ -5,7 +5,9 @@ html, menu, main, body, div, a, header, footer, article, section, aside, fieldse
     margin: 0;
     padding: 0;
 }
-
+form{
+    display: flex;
+}
 .colonne, body{
     flex-direction: column;
 }
@@ -67,6 +69,6 @@ input:focus{
 /* une div qui a un enfant qui est requis */
 div:has([required])::before{
     content: "*";
-    margin-right: 3rem;
+    margin-right: 0.5rem;
     color: red;
 } 
