@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../3. CSS/Form.css">
+</head>
+
+<body>
+    <main class="colonne">
+        <div class="bigEspace"></div>
+        <form action="" method="get" class="grid">
+            <label for="nom">Nom : </label>
+            <input type="text" name="nom" placeholder="Entrer le nom" autofocus>
+            <div class="espace"></div>
+            <label for="prenom">Prénom : </label>
+            <input type="text" name="prenom" placeholder="Entrer le prénom">
+            <label for="ddn">Date de Naissance : </label>
+            <input type="date" min="2000-01-01">
+            <div class="espace"></div>
+            <label for="genre">Genre : </label>
+            <fieldset class="colonne gap">
+                <div>
+                    <input type="radio" name="genre" class="mini" value="Masculin">
+                    <label>Masculin</label>
+                </div>
+                <div>
+                    <input type="radio" name="genre" class="mini" value="Feminin">
+                    <label>Féminin</label>
+                </div>
+            </fieldset>
+            <label for="contact">Préférence de contact :</label>
+            <fieldset class="colonne gap">
+                <div> 
+                    <input type="checkbox" name="email" value="Email" checked >
+                    <label> EMAIL</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="SMS" value = "SMS">
+                    <label> SMS</label>
+                </div>
+            </fieldset>
+            <div class="esp"></div>
+            <label for="ville">Ville : </label>
+            <select name="ville" id="ville">
+                <option value="" selected>Choisir une ville</option>
+                <option value="Dunkerque" >Dunkerque</option>
+                <option value="Lille">Lille</option>
+                <option value="Valenciennes">Valenciennes</option>
+            </select>
+            <label for="commentaire">Commentaire : </label>
+            <textarea name="commentaire" id="commentaire" rows="5"  maxlength="10"></textarea>
+            <div class="espace"></div>
+            <button type="reset">RESET</button>
+            <button type="submit">ENVOYER</button>
+        </form>
+    </main>
+</body>
+
+</html>

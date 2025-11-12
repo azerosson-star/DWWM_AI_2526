@@ -1,0 +1,68 @@
+
+html, menu, main, body, div, a, header, footer, article, section, aside, fieldset, label, input, select {
+    display: flex;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+video, button {
+    width: 100%;
+}
+img {
+    width: auto;
+    height: 100%;
+}
+
+.colonne {
+    flex-direction: column;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Différent taille de flex. */
+.vMini { flex: 0.05; }
+
+.mini { flex: 0.2; }
+
+.demi { flex: 0.5; }
+
+.double { flex: 2; }
+
+.triple { flex: 3; }
+
+.espace {
+    flex: none;
+    height: 2vh;
+}
+
+.bigEspace {
+    flex: none;
+    height: 5vh;
+}
+
+.miniEspace {
+    flex: none;
+    height: 0.2vh;
+}
+.noDisplay{
+    display: none;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 3fr 0.5fr 1fr 3fr;
+    row-gap: 2rem;
+}
+.start{
+    justify-content : flex-start;
+}
+.gap{
+    row-gap: 0.5rem;
+}
+textarea{
+    resize : none
+}
