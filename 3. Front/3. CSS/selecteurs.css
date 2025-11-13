@@ -26,4 +26,5 @@ input[type="text"]{
 
 *[checked]
 {
+    width:  20px;
 }
