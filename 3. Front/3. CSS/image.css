@@ -1,0 +1,11 @@
+img{
+    width: 100%;
+    height: auto;
+}
+div{
+    display: flex;
+    flex: 1;
+}
+.logo{
+    flex: 0.5;
+}
