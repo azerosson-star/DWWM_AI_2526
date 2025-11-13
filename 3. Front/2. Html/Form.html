@@ -6,20 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./../3. CSS/Form.css">
+    <link rel="stylesheet" href="./../3. CSS/FormMedia.css">
 </head>
 
-<body>
+<body class="">
+    <div class="cote"></div>
     <main class="colonne">
         <div class="bigEspace"></div>
         <form action="" method="get" class="grid">
             <label for="nom">Nom : </label>
             <input type="text" name="nom" placeholder="Entrer le nom" autofocus>
-            <div class="espace"></div>
+            <div class="noDisplay"></div>
             <label for="prenom">Prénom : </label>
             <input type="text" name="prenom" placeholder="Entrer le prénom">
             <label for="ddn">Date de Naissance : </label>
             <input type="date" min="2000-01-01">
-            <div class="espace"></div>
+            <div class="noDisplay"></div>
             <label for="genre">Genre : </label>
             <fieldset class="colonne gap">
                 <div>
@@ -42,7 +44,7 @@
                     <label> SMS</label>
                 </div>
             </fieldset>
-            <div class="esp"></div>
+            <div class="noDisplay"></div>
             <label for="ville">Ville : </label>
             <select name="ville" id="ville">
                 <option value="" selected>Choisir une ville</option>
@@ -52,11 +54,12 @@
             </select>
             <label for="commentaire">Commentaire : </label>
             <textarea name="commentaire" id="commentaire" rows="5"  maxlength="10"></textarea>
-            <div class="espace"></div>
+            <div class="noDisplay"></div>
             <button type="reset">RESET</button>
             <button type="submit">ENVOYER</button>
         </form>
     </main>
+    <div class="cote"></div>
 </body>
 
 </html>

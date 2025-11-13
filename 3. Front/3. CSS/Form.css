@@ -48,9 +48,7 @@ img {
     flex: none;
     height: 0.2vh;
 }
-.noDisplay{
-    display: none;
-}
+
 
 .grid{
     display: grid;
@@ -65,4 +63,7 @@ img {
 }
 textarea{
     resize : none
+}
+.cote{
+    flex:0.3
 }
