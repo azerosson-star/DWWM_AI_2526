@@ -34,22 +34,14 @@ class Chien(Animal):
         # Appelle la méthode 'respirer' spécifique à l'objet passé 
         print(animal.respirer()) 
 
-#rex = Chien("Rex") 
-#mistigri = Chat("Mistigri", "Blanc") 
-
-#print(rex.faire_respirer())
-
-
-# Affiche l'implémentation de Chien 
-print(mistigri.faire_respirer()) # Affiche l'implémentation de Chat (héritée d'Animal)
-
 
 # Instanciation de l'objet Chat
 mon_chat = Chat("Mistigri", "Noir")
 print(mon_chat.respirer()) # Méthode héritée
 print(mon_chat.miauler())  # Méthode propre
-print(mistigri.faire_respirer()) # Polymorphisme avec Chat
+print(mon_chat.faire_respirer()) # Polymorphisme avec Chat
 # Instanciation de l'objet Chien
+
 mon_chien = Chien("Rex")
 print(mon_chien.respirer()) # Méthode surchargée
 print(mon_chien.faire_respirer()) # Polymorphisme avec Chien
