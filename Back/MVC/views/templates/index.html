@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fr">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Les Peintres classiques</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inspiration&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+	<div class="container">
+		<div class="layout">
+			<div class="header">
+				<div class="header-logo"><img class="logo-img" src="{{ url_for('static', filename='images/logo-art-peinture.png') }}"></div>
+				<div class="header-description">Les Artistes Peintres</div>
+			</div>
+			<div class="nav">
+				<div class="nav-menu">
+					<a href="#" class="nav-menu-item" id="btn-picasso">Picasso</a>
+					<a href="#" class="nav-menu-item" id="btn-caillebotte">Caillebotte</a>
+					<a href="#" class="nav-menu-item" id="btn-vermeer">Vermeer</a>
+					<a href="#" class="nav-menu-item" id="btn-kandinsky">Kandinsky</a>
+					<a href="#" class="nav-menu-item" id="btn-monet">Monet</a>
+					<a href="#" class="nav-menu-item" id="btn-gogh">Van Gogh</a>
+				</div>
+			</div>
+			<div class="banner">
+				<img class="banner-img" src="{{ url_for('static', filename='images/img_baniere.png') }}">
+				<div class="banner-content">
+					<div class="banner-content-title">Ce que nous faisons</div>
+					<div class="banner-content-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+						do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+						nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				</div>
+			</div>
+			<div class="main">
+				<div class="main-side">
+					<div class="main-side-nav">
+						<a href="#" class="main-side-nav-item">Nos Productions</a>
+						<a href="#" class="main-side-nav-item">Qui Sommes Nous</a>
+						<a href="#" class="main-side-nav-item">Notre Philosophie</a>
+						<a href="#" class="main-side-nav-item">Nous Contacter</a>
+					</div>
+				</div>
+				<div class="main-content" id="router-view"></div>
+			</div>
+
+			<div class="footer2">
+				<div class="footer2-copyright">© Copyright Art Fabric</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="dynamic-sections">
+		<!-- picasso route -->
+		<div id="picasso" class="dynamic-sections-item">
+			<div class="main-content-title">Galerie Picasso</div>
+			<div class="row">
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Demoiselles_Avignon.png') }}"
+								alt="Demoiselles_Avignon_Picasso">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Les Demoiselles d'Avignon (1907)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/guernica.png') }}" alt="Guernica_Picasso">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Guernica (1937)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Femme_qui_pleure.png') }}"
+								alt="La _Femme_qui_pleure_Picasso">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							La Femme qui Pleure (1937)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Le_Peintre_et_son_Modele.png') }}"
+								alt="Le Peintre et son modèle Picasso">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Le Peintre et son Modèle (1926)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Autoportrait_Picasso.png') }}" alt="Autoportrait Picasso">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Autoportrait (1906)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Marie_Therese.png') }}" alt="Marie Thérèse Picasso">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Marie Thérèse (1937)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- caillebotte route -->
+		<div id="caillebotte" class="dynamic-sections-item">
+			<div class="main-content-title">Galerie Caillebotte</div>
+			<div class="row">
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Jour_de_pluie_à_Paris.png') }}"
+								alt="Jour de pluie à Paris Caillebotte">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Jour de pluie à Paris (1877)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Peintres_en_batiment.png') }}"
+								alt="Peintres en batiment Caillebotte 1877">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Les Peintres en bâtiment (1877)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Raboteurs_de_parquet.png') }}"
+								alt="Les Raboteurs de parquet Caillebotte">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Les Raboteurs de Parquet (1877)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Périssoires_sur_l’Yerres.png') }}"
+								alt="Périssoires sur l’Yerres Caillebotte">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Périssoires sur l’Yerres (1877)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Autoportrait_Caillebotte.png') }}"
+								alt="Autoportrait Caillebotte">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Autoportrait (1877)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- vermeer route -->
+		<div id="vermeer" class="dynamic-sections-item">
+			<div class="main-content-title">Galerie Vermeer</div>
+			<div class="row">
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/La_Laitière.png') }}" alt="La Laitière Vermeer">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							La Laitière (1658)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/La_Liseuse_à_la_fenêtre.png') }}"
+								alt="La Liseuse à la fenêtre Vermeer">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							La Liseuse à la fenêtre (1659)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/fille_a_la_perle.png') }}"
+								alt="La Fille à la Perle Vermeer">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							La Fille à la Perle (1665)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- kandinsky route -->
+		<div id="kandinsky" class="dynamic-sections-item">
+			<div class="main-content-title">Galerie Kandinsky</div>
+			<div class="row">
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/tableau-en-bleu-1925-.png') }}"
+								alt="Tableau en bleu Kandinsky">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Tableau en Bleu (1925)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Jaune_rouge_bleu.png') }}"
+								alt="Jaune rouge bleu Kandinsky">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Jaune Rouge Bleu (1925)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Composition-1939.png') }}" alt="Composition X Kandinsky">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Composition X (1939)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Composition-VI-1913.png') }}"
+								alt="Composition VI Kandinsky">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Composition VI (1913)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Moscou-1916.png') }}" alt="Moscou Kandinsky">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Moscou (1916)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Noir-et-violet-1923.png') }}"
+								alt="Noir et violet Kandinsky">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Noir et Violet (1923)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- monet route -->
+		<div id="monet" class="dynamic-sections-item">
+			<div class="main-content-title">Galerie Monet</div>
+			<div class="row">
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/La_Promenade.png') }}" alt="La Promenade Monet">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							La Promenade (1875)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Nymphéas-1916.png') }}" alt="Nymphéas Monet">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Nymphéas (1916)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Impression_soleil_levant-1872.png') }}"
+								alt="Impression au Soleil Levant Monet">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Impression au Soleil Levant (1872)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Les_Coquelicots.png') }}" alt="Les Coquelicots Monet">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Les Coquelicots (1873)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Madame_Monet_et_Enfant-1875.png') }}"
+								alt="Camille Monet et l'Enfant Monet">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Camille Monet et l'Enfant (1875)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Le_déjeuner-1873.png') }}" alt="Le Déjeunet Monet">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Le Déjeuner (1873)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- van gogh route -->
+		<div id="gogh" class="dynamic-sections-item">
+			<div class="main-content-title">Galerie Van Gogh</div>
+			<div class="row">
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/La_nuit_étoilée-1889.png') }}"
+								alt="La Nuit étoilée Van Gogh">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							La Nuit Etoilée (1889)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/La_Chambre_de_van_gogh-1889-.png') }}"
+								alt="La Chambre de Van Gogh">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							La Chambre de Van Gogh (1889)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Terrasse_café.png') }}" alt="La Terrasse de Café Van Gogh">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							La Terrasse de Café (1888)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/La_Sieste.png') }}" alt="La Sieste Van Gogh">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							La Sieste (1890)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Les_Iris-1889.png') }}" alt="Les Iris Van Gogh">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Les Iris (1889)
+						</div>
+					</div>
+				</div>
+				<div class="row-item u-width--1of2 u-width-lgup--1of3">
+					<div class="card">
+						<div class="card-header">
+							<img class="card-header-img" src="{{ url_for('static', filename='images/Campagne_Montagneuse-1889.jpg') }}"
+								alt="Campagne Montagneuse Van Gogh">
+							<div class="card-header-overlay">
+								<div class="card-header-overlay-text">Description...</div>
+							</div>
+						</div>
+						<div class="card-body">
+							Campagne Montagneuse (1889)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
