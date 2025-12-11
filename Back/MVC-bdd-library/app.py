@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_login import LoginManager
 
-from controllers.user_controller import user_bp
+#from controllers.user_controller import user_bp
 from controllers.main_controller import main_bp
 from models.user_model import User
 
@@ -18,7 +18,7 @@ login_manager.init_app(app)
 def load_user(user_id):
     return User.get(user_id)
 
-app.register_blueprint(user_bp)
+#app.register_blueprint(user_bp)
 app.register_blueprint(main_bp)
 
 

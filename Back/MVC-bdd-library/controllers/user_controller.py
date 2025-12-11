@@ -10,20 +10,20 @@ from models.user_model import User
 # ne nécessitent pas de préfixe supplémentaire (ex: /login, /register).
 user_bp = Blueprint('user', __name__)
 
-@user_bp.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
+#@user_bp.route('/login', methods=['GET', 'POST'])
+#def login():
+    #if request.method == 'POST':
         # A faire
-    return render_template('login.html')
+    #return render_template('login.html')
 
-@user_bp.route('/register', methods=['GET', 'POST'])
-def register():
+#@user_bp.route('/register', methods=['GET', 'POST'])
+#def register():
     # A faire
 
-    return render_template('register.html')
+    #return render_template('register.html')
 
-@user_bp.route('/logout')
-def logout():
-    logout_user()
-    flash('Déconnexion réussie!', 'success')
-    return redirect(url_for('main.index'))
+#@user_bp.route('/logout')
+#def logout():
+    #logout_user()
+    #flash('Déconnexion réussie!', 'success')
+    # return redirect(url_for('main.index'))
