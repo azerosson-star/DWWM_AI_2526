@@ -1,0 +1,39 @@
+.container {
+    perspective: 1000px;
+    margin-top: 50px;
+}
+
+.cercle-face {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d; /* Indispensable pour la 3D */
+    cursor: pointer;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    /* Cache le dos de l'élément quand il se retourne */
+    backface-visibility: hidden; 
+}
+
+.rouge {
+    background-color: red;
+    /* Cette face est devant par défaut */
+    z-index: 2;
+}
+
+.bleue {
+    background-color: blue;
+    /* On pré-pivote la face bleue de 180° pour qu'elle soit "dos" à la rouge */
+    transform: rotateY(180deg);
+}

@@ -1,0 +1,9 @@
+#cercle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(to right, red 50%, blue 50%);
+    transition: transform 0.6s;
+    cursor: pointer;
+    margin: 50px auto;
+}

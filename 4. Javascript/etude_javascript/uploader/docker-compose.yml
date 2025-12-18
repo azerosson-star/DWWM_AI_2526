@@ -1,0 +1,10 @@
+version: '3'
+services:
+  nodejs:
+    build: .
+    container_name: nodejs_uploader
+    ports:
+      - "3001:3001"
+    volumes:
+          # Lie le dossier local './uploads' au dossier d'upload du conteneur
+          - ./public/data/uploads:/usr/src/app/public/data/uploads
