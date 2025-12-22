@@ -1,0 +1,348 @@
+= Manuel utilisateur : Librairie Solidaire
+Auteur Patrick Croquet
+:reproducible:
+:doctype: book
+:lang: fr
+:sectnums:
+:toc: left
+:toc-title: Sommaire
+:source-highlighter: highlight.js
+:experimental:
+:rouge-style: github <1>
+:icons: font
+:toc: left
+:image-dir: .\images
+
+Créé avec https://asciidoc.org[AsciiDoc].
+
+== Introduction
+Présentation de l'application de gestion de la Librairie Solidaire.
+
+== Authentification et Accès
+
+L'accès aux fonctionnalités de gestion est protégé. Seuls les utilisateurs authentifiés peuvent consulter les données des adhérents ou modifier le catalogue.
+
+=== Création d'un compte (Inscription)
+
+Avant de pouvoir administrer la bibliothèque, vous devez posséder un compte utilisateur.
+
+1.  Accédez à la page d'inscription via l'URL fournie par votre administrateur (généralement `/auth/register`).
+2.  **Nom d'utilisateur** : Choisissez un identifiant unique (ex: `pcroquet`).
+3.  **Email** : Saisissez votre adresse électronique professionnelle. Elle servira d'identifiant de connexion.
+4.  **Mot de passe** : Définissez un mot de passe robuste.
+5.  Cliquez sur [blue]#S'inscrire#.
+
+[NOTE]
+====
+Par défaut, les nouveaux comptes ont un rôle "Utilisateur". Si vous avez besoin de droits étendus (Administration), contactez le responsable de la base de données.
+====
+
+=== Connexion à l'interface d'administration
+
+Une fois votre compte créé, suivez ces étapes pour accéder au tableau de bord :
+
+1.  Sur la page d'accueil, cliquez sur **Connexion** (ou accédez à `/auth/login`).
+2.  Saisissez votre **Email** et votre **Mot de passe**.
+3.  Cochez la case "Se souvenir de moi" si vous utilisez un poste de travail personnel et sécurisé.
+4.  Cliquez sur le bouton [indigo]#Se connecter#.
+
+
+
+En cas de succès, vous serez automatiquement redirigé vers le **Tableau de Bord**. Si un message d'erreur rouge apparaît, vérifiez vos identifiants ou contactez le support.
+
+=== Déconnexion sécurisée
+
+Pour garantir la confidentialité des données des adhérents, il est impératif de vous déconnecter lorsque vous quittez votre poste.
+
+1.  Repérez le menu latéral (Sidebar) à gauche de l'écran.
+2.  Faites défiler jusqu'en bas du menu.
+3.  Cliquez sur le lien [red]#Déconnexion# (accompagné d'une icône de porte).
+4.  Le système détruira votre session active et vous redirigera vers la page de connexion.
+
+[WARNING]
+====
+Ne partagez jamais vos identifiants de connexion. Toute action effectuée sur le catalogue ou les prêts est tracée et associée à votre compte utilisateur.
+====
+
+== Le Tableau de Bord (Dashboard)
+
+Le Tableau de Bord est la page d'accueil de l'administration. Il permet de prendre le "pouls" de la Librairie Solidaire en un coup d'œil dès la connexion.
+
+=== Vue d'ensemble des statistiques
+
+La partie supérieure du tableau de bord présente trois indicateurs clés mis à jour en temps réel :
+
+* **Adhérents Actifs** (Couleur [indigo]#Indigo#) : Affiche le nombre total de membres inscrits dans la base de données.
+* **Livres dans le Catalogue** (Couleur [teal]#Teal/Émeraude#) : Indique le nombre de titres uniques référencés. C'est un indicateur de la richesse de votre collection.
+* **Prêts en Cours** (Couleur [red]#Rouge#) : Représente le volume de livres actuellement hors de la bibliothèque. 
+
+
+
+[TIP]
+====
+Si le compteur des prêts affiche une mention en rouge (ex: "5 sont en retard"), cela signifie que certains ouvrages ont dépassé leur date de restitution prévue. Cliquez sur la carte pour accéder directement au suivi des retards.
+====
+
+=== Accès aux actions rapides
+
+Sous les statistiques se trouve la zone des **Actions Rapides**. Elle est conçue pour faire gagner du temps aux bibliothécaires en évitant de naviguer dans les menus complexes pour les tâches les plus fréquentes.
+
+* **Bouton [+ Nouvel Adhérent]** : Ouvre directement le formulaire de création de membre. Idéal lorsqu'un visiteur souhaite s'inscrire immédiatement.
+* **Bouton [➡️ Enregistrer un Prêt]** : Accès direct au module d'emprunt. C'est le bouton le plus utilisé lors de l'accueil du public.
+
+
+
+=== Navigation via la barre latérale
+
+À tout moment, vous pouvez utiliser le menu vertical situé à gauche pour basculer entre les différents modules. Le lien correspondant à votre position actuelle (ex: "Tableau de Bord") apparaît en blanc sur fond bleu pour vous aider à vous repérer.
+
+== Gestion des Adhérents
+
+Cette section détaille les outils permettant de gérer la base de données des membres de la Librairie Solidaire. La bonne tenue de ces fiches garantit la traçabilité des emprunts.
+
+=== Consulter la liste des membres
+
+L'écran principal de la gestion des adhérents offre une vue d'ensemble de la communauté :
+
+1.  Sélectionnez **Gestion des Adhérents** dans le menu latéral.
+2.  **Vue synthétique** : Le tableau affiche le numéro d'adhérent, le nom complet, les coordonnées (email/téléphone) et la date d'adhésion.
+3.  **Compteur d'activité** : Une colonne spécifique affiche le nombre de livres actuellement en possession de l'adhérent (ex: [yellow]#2 / 5#).
+
+
+
+=== Ajouter un nouvel adhérent
+
+Lorsqu'une personne souhaite s'inscrire à la librairie :
+
+1.  Cliquez sur le bouton [green]#+ Ajouter un Adhérent# en haut de la page.
+2.  **Informations obligatoires** :
+    * **Nom & Prénom** : Identité officielle.
+    * **Email** : Utilisé pour les notifications de retard.
+    * **Téléphone** : Pour les relances rapides.
+3.  **Date d'adhésion** : Elle est fixée par défaut à la date du jour.
+4.  Cliquez sur [blue]#Enregistrer#. Un numéro d'adhérent unique est alors généré automatiquement par le système.
+
+=== Modifier les informations d'un adhérent
+
+Il est important de maintenir les coordonnées des membres à jour (changement d'email ou de téléphone).
+
+1.  Dans la liste des adhérents, cliquez sur le lien [indigo]#Modifier# situé à droite de la ligne correspondante.
+2.  Modifiez les champs nécessaires dans le formulaire.
+3.  Validez les changements en cliquant sur [blue]#Sauvegarder#.
+
+[NOTE]
+====
+Le numéro d'adhérent n'est pas modifiable car il sert de référence historique pour tous les prêts passés et présents.
+====
+
+=== Supprimer un compte adhérent
+
+La suppression d'un membre est une action sensible.
+
+1.  Identifiez l'adhérent dans la liste.
+2.  Cliquez sur le bouton [red]#Supprimer#.
+3.  **Fenêtre de confirmation** : Le système vous demandera de confirmer votre choix pour éviter toute perte de données accidentelle.
+
+[CAUTION]
+====
+Le système empêchera la suppression d'un adhérent si celui-ci possède encore des **prêts en cours**. Vous devez impérativement enregistrer le retour de tous ses livres avant de pouvoir supprimer sa fiche.
+====
+
+== Gestion du Catalogue
+
+Le catalogue est le cœur de la Librairie Solidaire. Cette section vous permet de gérer l'inventaire des œuvres disponibles à l'emprunt.
+
+=== Consultation des livres disponibles
+
+Pour visualiser l'ensemble des ouvrages :
+1. Cliquez sur **Gestion du Catalogue** dans le menu latéral.
+2. La liste affiche le titre, l'ISBN, les auteurs associés et l'année de publication.
+3. Utilisez la barre de défilement pour parcourir la collection.
+
+=== Ajout d'une nouvelle œuvre
+
+L'ajout d'un livre nécessite des informations précises pour garantir l'intégrité de la base de données.
+
+1. Cliquez sur le bouton [green]#+ Ajouter un Livre# en haut à droite de la liste.
+2. **ISBN** : Saisissez l'identifiant à 13 chiffres (ex: 978-2070415731). Cet identifiant est unique.
+3. **Titre** : Indiquez le titre complet de l'ouvrage.
+4. **Auteurs** : Sélectionnez un ou plusieurs auteurs dans la liste multi-sélection (voir <<Gestion des auteurs associés>>).
+5. **Résumé** : (Optionnel) Saisissez une brève description de l'œuvre.
+6. Validez en cliquant sur [blue]#Créer le Livre#.
+
+=== Modification des détails d'un livre
+
+Si une erreur a été commise ou si vous souhaitez enrichir une fiche :
+1. Dans la liste du catalogue, identifiez le livre et cliquez sur le lien [indigo]#Modifier#.
+2. Modifiez les champs nécessaires.
+3. Cliquez sur [blue]#Sauvegarder les Modifications#.
+
+[NOTE]
+====
+L'ISBN est la clé primaire de l'œuvre. Si vous modifiez l'ISBN, assurez-vous qu'il ne correspond pas déjà à un autre livre existant.
+====
+
+=== Gestion des auteurs associés
+
+L'application gère une relation "plusieurs-à-plusieurs", ce qui signifie qu'un livre peut avoir plusieurs auteurs.
+
+* **Sélectionner plusieurs auteurs** : Dans le formulaire d'ajout ou de modification, maintenez la touche `CTRL` (Windows) ou `Cmd` (Mac) enfoncée tout en cliquant sur les noms des auteurs.
+* **Ajouter un auteur absent** : Si l'auteur n'est pas dans la liste, vous devez d'abord l'enregistrer dans la section dédiée (Gestion des Auteurs) avant de pouvoir l'associer à un livre.
+
+=== Suppression d'un livre du catalogue
+
+La suppression est une action permanente.
+
+1. Cliquez sur le bouton [red]#Supprimer# en face du livre concerné.
+2. Une boîte de dialogue de confirmation apparaîtra pour éviter les erreurs de manipulation.
+3. Confirmez la suppression.
+
+[CAUTION]
+====
+La suppression d'un livre entraînera la suppression de tout l'historique des prêts associés à cet exemplaire. Pour conserver les statistiques de prêt, préférez simplement marquer le livre comme "Indisponible" (si l'option est activée).
+====
+
+== Gestion des Prêts et Retours
+
+Cette section explique comment gérer le flux des ouvrages, de la sortie de la bibliothèque jusqu'à leur réintégration dans le catalogue.
+
+=== Enregistrer un nouvel emprunt
+
+Le processus d'emprunt lie un exemplaire du catalogue à un adhérent pour une durée déterminée.
+
+1.  Depuis le **Tableau de Bord**, cliquez sur le bouton [blue]#➡️ Enregistrer un Prêt# ou rendez-vous dans l'onglet **Gestion des Prêts** du menu latéral.
+2.  **Sélection de l'adhérent** : Recherchez l'adhérent dans la liste déroulante (par nom ou numéro d'adhérent).
+3.  **Choix de l'ouvrage** : Sélectionnez le livre concerné. Seuls les livres dont le statut est "Disponible" apparaissent dans cette liste.
+4.  **Date d'échéance** : Le système calcule automatiquement la date de retour prévue (généralement J+21 jours).
+5.  Cliquez sur [blue]#Confirmer l'emprunt#.
+
+[IMPORTANT]
+====
+Le système vérifie automatiquement le **quota de l'adhérent**. Si celui-ci possède déjà 5 prêts en cours, une alerte s'affichera et l'enregistrement sera bloqué jusqu'au retour d'un de ses livres.
+====
+
+=== Suivi des livres en cours de prêt
+
+L'écran principal de la gestion des prêts offre une vue synoptique de l'état du stock circulant :
+
+* **Tableau récapitulatif** : Affiche l'ID du prêt, le nom de l'emprunteur, le titre du livre et la date d'échéance.
+* **Indicateurs de statut** : 
+    - [green]#En cours# : Le livre est chez l'adhérent, le délai est respecté.
+    - [red]#En retard# : La date d'échéance est dépassée.
+
+
+
+=== Enregistrer le retour d'un livre
+
+Lorsqu'un adhérent rapporte un ouvrage, il est crucial d'enregistrer le retour pour libérer son quota et remettre le livre à disposition.
+
+1.  Accédez à la liste des **Prêts en cours**.
+2.  Utilisez le champ de recherche pour trouver l'adhérent ou le livre.
+3.  Cliquez sur l'icône [teal]#Valider le retour# située en bout de ligne.
+4.  Une fenêtre de confirmation apparaît. Validez pour clôturer le prêt.
+
+Une fois validé, la **date de retour effective** est enregistrée et le livre redevient immédiatement sélectionnable pour un nouvel emprunt.
+
+=== Gestion des retards et alertes
+
+Le système surveille quotidiennement les dates d'échéance pour faciliter le travail de relance :
+
+* **Alertes visuelles** : Sur le tableau de bord, le compteur "Prêts en cours" met en évidence le nombre de retards en orange ou rouge.
+* **Procédure de relance** : 
+    1. Repérez les lignes marquées [red]#En retard# dans la gestion des prêts.
+    2. Cliquez sur le nom de l'adhérent pour accéder à ses coordonnées (Email/Téléphone).
+    3. Contactez l'adhérent pour l'inviter à restituer l'ouvrage.
+
+[TIP]
+====
+Il est recommandé de consulter les alertes de retard chaque matin dès l'ouverture de l'interface d'administration pour assurer une rotation fluide du catalogue.
+====
+
+== Interface et Navigation
+
+L'application Librairie Solidaire a été conçue pour être intuitive et rapide d'utilisation, quel que soit l'appareil utilisé.
+
+=== Utilisation du menu vertical (Sidebar)
+
+Le menu latéral gauche est votre centre de contrôle permanent. Il reste visible sur toutes les pages d'administration pour vous permettre de changer de module en un clic.
+
+* **Repère visuel (État Actif)** : Le lien correspondant à la page sur laquelle vous vous trouvez est mis en évidence par un fond bleu [indigo] et une ombre portée. Les autres liens restent grisés.
+* **Sections disponibles** :
+    - **Tableau de Bord** : Pour une vue d'ensemble immédiate.
+    - **Gestion des Adhérents** : Pour le suivi des membres et inscriptions.
+    - **Gestion du Catalogue** : Pour l'inventaire des livres et auteurs.
+    - **Gestion des Prêts** : Pour les opérations quotidiennes de sortie et retour.
+
+
+
+=== Adaptabilité mobile et tablette
+
+L'interface utilise une technologie "Responsive" (adaptative). Cela signifie que la disposition des éléments s'ajuste selon la taille de votre écran :
+
+* **Sur Ordinateur** : Le menu vertical est toujours affiché à gauche, et le contenu principal occupe le reste de l'espace.
+* **Sur Tablette** : Les tableaux (adhérents, livres) peuvent afficher une barre de défilement horizontale pour préserver la lisibilité des données sans réduire la taille du texte.
+* **Sur Mobile** :
+    - Le menu latéral peut se réduire ou se masquer pour laisser place au contenu.
+    - Les colonnes des tableaux les moins critiques (comme l'ID ou la date d'adhésion) peuvent être masquées pour privilégier le nom et les actions (Modifier/Supprimer).
+
+
+
+[TIP]
+====
+Si vous travaillez sur un petit écran et que vous ne voyez pas le menu, cherchez l'icône "Menu" (souvent représentée par trois barres horizontales) pour le faire apparaître.
+====
+
+=== Fluidité des interactions
+
+Pour chaque action importante (suppression d'un adhérent, validation d'un prêt, déconnexion), une fenêtre de confirmation apparaît. Cela évite les erreurs de manipulation et garantit que chaque modification de la base de données est intentionnelle.
+
+== Aide et Support
+
+Cette section vous aide à résoudre les problèmes courants et vous indique comment obtenir une assistance supplémentaire pour l'application Librairie Solidaire.
+
+=== Erreurs fréquentes et solutions
+
+[cols="1,2", options="header"]
+|===
+| Problème constaté | Solution recommandée
+
+| "Email ou mot de passe incorrect"
+| Vérifiez que la touche majuscule n'est pas activée. Si l'erreur persiste, contactez l'administrateur pour réinitialiser votre mot de passe.
+
+| "ISBN déjà existant"
+| Vous tentez d'ajouter un livre qui est déjà présent dans le catalogue. Recherchez le titre dans la liste pour vérifier s'il ne s'agit pas d'un doublon.
+
+| Impossible de supprimer un adhérent
+| Vérifiez que l'adhérent a rendu tous ses livres. Le système bloque la suppression tant qu'un prêt est actif.
+
+| Le menu latéral ne s'affiche pas
+| Sur petit écran ou tablette, cliquez sur l'icône "hamburger" (≡) en haut de page pour déployer la navigation.
+|===
+
+=== Maintenance de la base de données
+
+Pour garantir la rapidité de l'application :
+* **Archivage** : Les prêts clôturés depuis plus de 2 ans sont automatiquement déplacés vers l'historique d'archivage lors de la maintenance mensuelle.
+* **Sauvegarde** : Une sauvegarde automatique de la base de données SQL est effectuée chaque nuit à 03h00. En cas de perte de données, contactez le service informatique.
+
+=== Contact de l'assistance
+
+Si vous rencontrez un bug technique ou une erreur système (page d'erreur 500) :
+
+* **Support Technique** : support-it@librairie-solidaire.org
+* **Administrateur Système** : Patrick Croquet
+* **Ligne interne** : Poste 402
+
+[TIP]
+====
+Avant de contacter le support, munissez-vous de l'identifiant de l'élément concerné (numéro d'adhérent, ISBN du livre ou ID du prêt) pour accélérer le diagnostic.
+====
+
+== Conclusion
+
+Ce manuel a pour vocation d'évoluer avec les fonctionnalités de l'outil. Nous vous remercions pour votre engagement au sein de la Librairie Solidaire et espérons que cette interface MVC facilitera votre gestion quotidienne.
+
+_Dernière mise à jour : Décembre 2025_
+
+
+

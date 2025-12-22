@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div class="flex bg-gray-50">
+    
+    {% with active_page='prets' %}
+        {% include 'includes/admin_sidebar.html' %}
+    {% endwith %}
+
+    <main class="flex-1 overflow-y-auto p-6">
+        <div class="max-w-2xl mx-auto mt-8 p-6 bg-white shadow-xl rounded-lg border-t-4 border-blue-600">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Enregistrer un Nouvel Emprunt</h2>
+            
+            <form method="POST" action="{{ url_for('pret_bp.emprunter') }}" class="space-y-6">
+                <div>
+                    <label for="num_adherent" class="block text-sm font-semibold text-gray-700">Numéro de l'Adhérent</label>
+                    <input type="number" name="num_adherent" id="num_adherent" required 
+                            placeholder="Ex: 12"
+                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500">
+                    <p class="mt-1 text-xs text-gray-500">Entrez le numéro unique figurant sur la carte de l'adhérent.</p>
+                </div>
+
+                <div>
+                    <label for="num_inventaire" class="block text-sm font-semibold text-gray-700">Numéro d'Inventaire de l'Exemplaire</label>
+                    <input type="number" name="num_inventaire" id="num_inventaire" required 
+                            placeholder="Ex: 1045"
+                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500">
+                    <p class="mt-1 text-xs text-gray-500">Scannez ou saisissez le code sur l'étiquette du livre.</p>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-md">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-blue-700">
+                                La date de retour sera automatiquement fixée à <strong>21 jours</strong> à partir d'aujourd'hui.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between pt-4">
+                    <a href="{{ url_for('pret_bp.list_emprunts') }}" class="text-sm text-gray-600 hover:underline">Annuler</a>
+                    <button type="submit" class="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Confirmer l'Emprunt
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+{% endblock %}

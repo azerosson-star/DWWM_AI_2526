@@ -1,0 +1,66 @@
+<aside class="w-64 bg-white shadow-lg border-r border-gray-200 flex flex-col h-full">
+    <div class="p-6">
+        <h2 class="text-xl font-bold text-teal-700">⚙️ Administration</h2>
+        <p class="text-sm text-gray-500">Bienvenue, {{ current_user.username }}</p>
+    </div>
+    
+    <nav class="flex-grow p-4 space-y-2">
+        
+        {% set is_dashboard_active = active_page == 'dashboard' %}
+        <a href="{{ url_for('main_bp.dashboard') }}" 
+            class="flex items-center p-3 text-sm font-medium rounded-lg transition duration-150 
+            {% if is_dashboard_active %} 
+                text-white bg-indigo-600 shadow-md 
+            {% else %} 
+                text-gray-700 hover:bg-gray-100 
+            {% endif %}">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l-2-2m2 2l2 2m-2-2v10a1 1 0 01-1 1h-3"></path></svg>
+            Tableau de Bord
+        </a>
+
+        {% set is_adherents_active = active_page == 'adherents' %}
+        <a href="{{ url_for('adherent_bp.list_adherents') }}" 
+            class="flex items-center p-3 text-sm font-medium rounded-lg transition duration-150 
+            {% if is_adherents_active %} 
+                text-white bg-indigo-600 shadow-md 
+            {% else %} 
+                text-gray-700 hover:bg-gray-100 
+            {% endif %}">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20h-2m2 0h-2m0 0h-2M10 10a4 4 0 11-8 0 4 4 0 018 0zM16 12a4 4 0 10-8 0 4 4 0 008 0z"></path></svg>
+            Gestion des Adhérents
+        </a>
+
+        {% set is_catalogue_active = active_page == 'catalogue' %}
+        <a href="{{ url_for('catalogue_bp.list_livres') }}" 
+            class="flex items-center p-3 text-sm font-medium rounded-lg transition duration-150 
+            {% if is_catalogue_active %} 
+                text-white bg-indigo-600 shadow-md 
+            {% else %} 
+                text-gray-700 hover:bg-gray-100 
+            {% endif %}">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13a6 6 0 00-7.033 4.291M12 6.253a6 6 0 017.033 4.291M12 6.253C10.74 6.253 9.49 6.253 8.24 6.253M12 19.253v-13"></path></svg>
+            Gestion du Catalogue
+        </a>
+
+        {% set is_prets_active = active_page == 'prets' %}
+        <a href="{{ url_for('pret_bp.list_emprunts') }}" 
+            class="flex items-center p-3 text-sm font-medium rounded-lg transition duration-150 
+            {% if is_prets_active %} 
+                text-white bg-indigo-600 shadow-md 
+            {% else %} 
+                text-gray-700 hover:bg-gray-100 
+            {% endif %}">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3h8v4m-4 17V7m0 0h-4M12 7h4"></path></svg>
+            Gestion des Prêts
+        </a>
+        
+    </nav>
+    
+    <div class="p-4 border-t border-gray-200">
+        <a href="{{ url_for('user_bp.logout') }}" 
+            class="flex items-center p-3 text-sm font-medium rounded-lg text-red-600 hover:bg-red-50 transition duration-150">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2z"></path></svg>
+            Déconnexion
+        </a>
+    </div>
+</aside>
