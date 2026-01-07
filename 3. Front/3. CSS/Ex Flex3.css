@@ -1,0 +1,55 @@
+
+div {
+    display: flex;
+    flex: 1;
+}
+
+.colonne {
+    flex-direction: column;
+}
+
+.espace {
+    flex: 0.1;
+}
+
+.espaceV {
+    flex:none;
+    height: 2vh;
+}
+
+.bleu {
+    background-color: blue;
+    height:200vh;
+    padding: 5vh;
+}
+
+.gris {
+    background-color: grey;
+
+}
+
+.jaune {
+    background-color: yellow;
+}
+
+.vert {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+    padding: 2rem;
+}
+img {
+    height:100%;
+    width: auto;
+}
+.sansPadding {
+    padding: unset;
+    flex: 0.1;
+    
+}
+
+.orange div img{
+    max-width: fit-content;
+}

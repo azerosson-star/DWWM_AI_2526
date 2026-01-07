@@ -1,0 +1,238 @@
+/*                   *** Global ***                        */
+body {
+    background-image: url(../image/fond.jpg);
+    background-position: center;
+}
+
+#container {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    margin-top: 3%;
+    min-width: 8px;
+    ;
+}
+
+.espaceVertical {
+    width: 5vw;
+    flex: 0.1;
+}
+
+.espaceHorizontal {
+    height: 5vw;
+}
+
+video {
+    width: 100%;
+}
+
+/*                   *** Entete ***                        */
+
+header {
+    background-image: url(../image/header.jpg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    height: 8em;
+}
+
+.imgcookie {
+    width: 8vw;
+    margin-left: 1%;
+    position: absolute;
+
+}
+
+#titre {
+    vertical-align: middle;
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 4em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: auto;
+    text-shadow: white 0.1em 0.1em 0.2em;
+}
+
+/*                   *** Menu ***                        */
+nav {
+    background-image: url(../image/fond1.png);
+    background-size: cover;
+    background-position: left;
+    font-size: 2em;
+    padding: 0.12em;
+    display: flex;
+    justify-content: center;
+
+}
+
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+/*                   *** Sous Menu ***                        */
+.menuNiveau1 {
+    display: none;
+    position: absolute;
+    flex-flow: column;
+    list-style: none;
+    margin-top: 6vh;
+    padding: 0.5vw;
+}
+
+.btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn {
+    background: #08598c;
+    background-image: linear-gradient(to bottom, #08598c, #3e99d1);
+    border-radius: 5px;
+    text-shadow: 1px 2px 2px #666666;
+    font-family: verdana;
+    color: #ffffff;
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: row;
+    border: solid #326280 3px;
+}
+
+.btn > a {
+    text-decoration: none;
+    text-shadow: 1px 2px 2px #666666;
+    font-family: verdana;
+    color: #ffffff;
+    padding: 0.5vw 1vw;
+}
+
+.btn:hover .menuNiveau1 {
+    background: #003d61;
+    background-image: linear-gradient(to bottom, #003d61, #4299d4);
+    z-index: 2;
+    display: flex;
+}
+
+/*                   *** Contenu ***                        */
+
+#contenu {
+    background-color: #e1eae9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: auto;
+    padding: 2em;
+    z-index: 1;
+}
+
+/*                   *** Les Bandes ***                        */
+#bande1 {
+    display: flex;
+    width: 100%
+}
+
+#cookieKFC {
+    flex: 1;
+    align-self: center;
+}
+
+#box {
+    flex: 2;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(229, 229, 229, 1) 100%);
+    display: flex;
+    flex-wrap: wrap;
+    height: 25vw;
+    overflow-y: scroll;
+}
+
+#titrebox {
+    background: linear-gradient(to bottom, rgba(30, 87, 153, 1) 0%, rgba(41, 137, 216, 1) 50%, rgba(32, 124, 202, 1) 51%, rgba(125, 185, 232, 1) 100%);
+    font-size: 2em;
+    width: 100%;
+    height: auto;
+}
+
+.textbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 1.5em;
+    padding-left: 2vw;
+}
+
+#ingredient {
+    flex: 2;
+}
+
+#imgSemaine {
+    flex: 1;
+    align-self: center;
+    margin-right: 1vw;
+}
+
+#imgSemaine img {
+    width: 100%;
+}
+
+#bande2 {
+    display: flex;
+    width: 80%;
+}
+
+aside {
+    position: left;
+    border: blue 1px solid;
+    border-radius: 6px;
+    padding: 0.5vw;
+    margin: 0.5vw;
+    width: 25vw;
+    align-self: center;
+}
+
+section {
+    display: flex;
+}
+
+article {
+    font-size: 1.5em;
+    text-align: justify;
+    font-family: Calibri;
+    color: #202020;
+}
+
+#textcontenu {
+    background-color: #e1eae9;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    flex: auto;
+}
+
+h3 {
+    margin: auto;
+    text-align: center;
+    padding-top: 1%;
+}
+
+/*                   *** Footer ***                        */
+
+#footer {
+    background-image: url(../image/fond1.png);
+    background-position: top;
+    flex: auto;
+    color: white;
+}
+
+.imgcookie2 {
+    width: 8vw;
+    float: right;
+    margin-right: 2%;
+}

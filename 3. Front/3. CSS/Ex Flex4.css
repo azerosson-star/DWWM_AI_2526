@@ -1,0 +1,50 @@
+
+div {
+    display: flex;
+    flex: 1;
+}
+
+.colonne {
+    flex-direction: column;
+}
+
+.espace {
+    flex: 0.1;
+}
+
+.espaceV {
+    flex:none;
+    height: 2vh;
+}
+
+.bleu {
+    border: 5px solid blue;
+    height: 100vh;
+    padding: 5vh;
+}
+
+.gris {
+    border: 5px solid grey;
+
+}
+
+.jaune {
+    border: 5px solid yellow;
+}
+
+.vert {
+    border: 5px solid green;
+}
+
+.orange {
+    border: 5px solid orange;
+}
+.flex5{
+    flex:5;
+}
+.flex3{
+    flex:3
+}
+.flex05{
+    flex: 0.5;
+}

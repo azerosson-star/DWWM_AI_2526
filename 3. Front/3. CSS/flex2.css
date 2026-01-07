@@ -1,0 +1,25 @@
+div {
+    display: flex;
+    flex: 1;
+    border: 1px black solid;
+}
+
+.colonne {
+    flex-direction: column;
+}
+
+.espace {
+    flex: 0.1;
+}
+
+.titre {
+    flex: 2;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.espaceV {
+    height: 2vh;
+    flex: none;
+}

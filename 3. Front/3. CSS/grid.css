@@ -1,0 +1,40 @@
+div{
+    display: flex;
+    flex: 1;
+    border:1px solid black;
+    justify-content: center;
+    
+}
+.maGrid{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr ;
+    /* on reparti l'espace en fraction proportionnelle */
+    row-gap: 1rem;
+    /* espace entre 2 lignes */
+    column-gap:2rem;
+    /* espace entre 2 colonnes */
+}
+
+.monSpan{ 
+    /* permet de fusionner 2 colonnes */
+    grid-column: span 2;
+}
+
+.monSpanRow{
+    /* permet de fusionner 2 lignes */
+    grid-row: span 2;
+}
+
+.maGrid4{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    /* on reparti l'espace en fraction proportionnelle */
+    row-gap: 1rem;
+    /* espace entre 2 lignes */
+    column-gap:2rem;
+    /* espace entre 2 colonnes */
+}
+.espaceV{
+    flex:none;
+    height: 2vh;
+}
