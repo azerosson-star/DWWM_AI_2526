@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div class="flex bg-gray-50">
+    
+    {% with active_page='catalogue' %}
+        {% include 'includes/admin_sidebar.html' %}
+    {% endwith %}
+
+    <main class="flex-1 overflow-y-auto p-6">
+        <div class="max-w-6xl mx-auto mt-8 p-6 bg-white shadow-xl rounded-lg">
+            <div class="flex justify-between items-start border-b pb-4 mb-6">
+                <h2 class="text-4xl font-extrabold text-gray-900">{{ livre.titre }}</h2>
+                {% if current_user.is_authenticated and current_user.role == 'admin' %}
+                <div class="space-x-2">
+                    <a href="{{ url_for('catalogue_bp.edit_add_livre', isbn=livre.isbn) }}" 
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                        Modifier l'Œuvre
+                    </a>
+                    <button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-indigo-600 border border-indigo-600 hover:bg-indigo-50">
+                        Gérer les Exemplaires
+                    </button>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Informations Clés</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><span class="font-medium">ISBN :</span> {{ livre.isbn }}</li>
+                        <li><span class="font-medium">Année de Publication :</span> {{ livre.annee_publication }}</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Auteur(s)</h3>
+                    <div class="space-x-2">
+                        {% for auteur in auteurs %}
+                            <span class="inline-block bg-teal-100 text-teal-800 text-sm px-3 py-1 rounded-full font-medium">
+                                {{ auteur.prenom }} {{ auteur.nom }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="md:col-span-3">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Résumé</h3>
+                    <p class="text-gray-600 leading-relaxed">{{ livre.resume | default("Aucun résumé disponible.", true) }}</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-800 mt-10 mb-4 border-t pt-6">Exemplaires disponibles (Copies Physiques)</h3>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">N° Inventaire</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type d'Usage</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut (Prêt)</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        {% for exemplaire in livre.exemplaires.all() %}
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ exemplaire.num_inventaire }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                {% if exemplaire.type_usage == 'vente' %}
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Vente</span>
+                                {% else %}
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Prêt</span>
+                                {% endif %}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                {% if exemplaire.type_usage == 'vente' %}
+                                    N/A
+                                {% elif exemplaire.is_disponible_au_pret() %}
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Disponible</span>
+                                {% else %}
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Emprunté</span>
+                                {% endif %}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                <a href="#" class="text-gray-400 hover:text-gray-600">Détails</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if livre.exemplaires.count() == 0 %}
+                    <p class="p-6 text-center text-gray-500">Aucun exemplaire physique n'est enregistré pour cette œuvre.</p>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

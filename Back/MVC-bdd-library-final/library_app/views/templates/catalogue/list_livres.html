@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div class="mx-auto mt-8 p-6">
+    <div class="flex justify-between items-center mb-6 border-b pb-2">
+        <h2 class="text-3xl font-bold text-gray-800">Catalogue des Livres</h2>
+        {% if current_user.is_authenticated and current_user.role == 'admin' %}
+        <a href="{{ url_for('catalogue_bp.edit_add_livre') }}" 
+            class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md shadow-md transition duration-150">
+            + Ajouter un Livre
+        </a>
+        {% endif %}
+    </div>
+
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Titre</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Auteur(s)</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ISBN</th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Année</th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Exemplaires Prêt</th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                {% for livre in livres %}
+                <tr>
+                    <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ livre.titre }}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700">
+                        {% for auteur in livre.auteurs %}
+                            <span class="inline-block bg-gray-200 text-gray-700 text-xs px-2 rounded-full">{{ auteur.prenom }} {{ auteur.nom }}</span>{% if not loop.last %},{% endif %}
+                        {% endfor %}
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-500">{{ livre.isbn }}</td>
+                    <td class="px-6 py-4 text-sm text-center text-gray-500">{{ livre.annee_publication }}</td>
+                    <td class="px-6 py-4 text-sm text-center">
+                        {% set total_pretable = livre.exemplaires.filter_by(type_usage='prêt').count() %}
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                            {% if total_pretable > 0 %} bg-blue-100 text-blue-800 
+                            {% else %} bg-gray-100 text-gray-800 
+                            {% endif %}">
+                            {{ total_pretable }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-center text-sm font-medium">
+                        <a href="{{ url_for('catalogue_bp.view_livre', isbn=livre.isbn) }}" 
+                            class="text-teal-600 hover:text-teal-900">Détails</a>
+                        {% if current_user.is_authenticated and current_user.role == 'admin' %}
+                        | 
+                        <a href="{{ url_for('catalogue_bp.edit_add_livre', isbn=livre.isbn) }}" 
+                            class="text-indigo-600 hover:text-indigo-900">Modifier</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if not livres %}
+    <p class="text-center text-gray-500 mt-8">Aucun livre trouvé dans le catalogue.</p>
+    {% endif %}
+
+</div>
+{% endblock %}

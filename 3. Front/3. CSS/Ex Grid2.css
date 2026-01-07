@@ -1,0 +1,47 @@
+div{
+    display: flex;
+    flex: 1;
+    border:1px solid black;
+    justify-content: center;
+    
+}
+
+
+.grid2x5{
+    display: grid;
+    grid-template-columns: 1fr  3fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+    /* on reparti l'espace en fraction proportionnelle */
+    row-gap: 1rem;
+    /* espace entre 2 lignes */
+    column-gap:2rem;
+    /* espace entre 2 colonnes */
+}
+
+.spanColonne2{
+    grid-column: span 2;
+}
+.spanRow3{
+    grid-row: span 3;
+}
+.bleu {
+    background-color: blue;
+    padding: 5vh;
+}
+
+.gris {
+    background-color: grey;
+
+}
+
+.jaune {
+    background-color: yellow;
+}
+
+.vert {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+}

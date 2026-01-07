@@ -1,0 +1,70 @@
+= Documentation Technique : Système MVC Librairie Solidaire
+Patrick Croquet
+:doctype: book
+:lang: fr
+:sectnums:
+:source-highlighter: highlight.js
+:experimental:
+:rouge-style: github <1>
+:icons: font
+:toc: left
+:image-dir: .\images
+
+== Introduction
+Ce document détaille l'implémentation technique des composants clés de l'application, illustrant l'interaction entre les modèles SQLAlchemy et les templates Jinja2.
+
+== 1. Le Modèle de Données (Model)
+Le fichier `livre_model.py` définit la structure de l'œuvre au sein de la base de données. Il utilise une relation "Many-to-Many" pour lier les livres à leurs auteurs respectifs.
+
+[source,python]
+----
+class Livre(db.Model):
+    __tablename__ = 'livre'
+
+    # Clé primaire : ISBN (identifiant unique de l'œuvre)
+    isbn = db.Column(db.String(17), primary_key=True) <1>
+    titre = db.Column(db.String(255), nullable=False)
+    annee_publication = db.Column(db.Integer)
+    resume = db.Column(db.Text)
+
+    # Relation Many-to-Many vers Auteur via la table 'ecrire'
+    auteurs = relationship('Auteur', secondary='ecrire', back_populates='livres') <2>
+----
+<1> L'ISBN est stocké en chaîne de caractères (17) pour supporter les tirets du format ISBN-13.
+<2> La propriété `secondary` pointe vers la table d'association `Ecrire` pour gérer les multi-auteurs.
+
+== 2. L'Interface de Navigation (View)
+Le template `admin_sidebar.html` gère la navigation latérale. Il utilise des conditions Jinja2 pour mettre en évidence la page active.
+
+[source,html]
+----
+<nav class="flex-grow p-4 space-y-2">
+    
+    {% set is_dashboard_active = active_page == 'dashboard' %} <1>
+    <a href="{{ url_for('main_bp.dashboard') }}" 
+        class="flex items-center p-3 text-sm font-medium rounded-lg 
+        {% if is_dashboard_active %} 
+            text-white bg-indigo-600 shadow-md <2>
+        {% else %} 
+            text-gray-700 hover:bg-gray-100 
+        {% endif %}">
+        Tableau de Bord
+    </a>
+
+    {% set is_catalogue_active = active_page == 'catalogue' %}
+    <a href="{{ url_for('catalogue_bp.list_livres') }}" 
+        class="flex items-center p-3 ...">
+        Gestion du Catalogue
+    </a>
+</nav>
+----
+[cite_start]<1> Une variable booléenne est définie en comparant `active_page` (passée par le contrôleur) au nom du module.
+[cite_start]<2> Si la condition est vraie, les classes Tailwind CSS appliquent un fond indigo et un texte blanc pour marquer la position de l'utilisateur.
+
+== 3. Interaction entre Modèle et Vue
+Lorsqu'un utilisateur consulte le catalogue, le contrôleur récupère les instances de `Livre` et les passe au template. La sidebar, incluse via `{% include %}`, reçoit alors la variable `active_page='catalogue'` pour mettre à jour visuellement le menu.
+
+[TIP]
+====
+Pour éviter les erreurs de syntaxe lors de l'inclusion, utilisez toujours le bloc `{% with %}` dans vos templates parents.
+====

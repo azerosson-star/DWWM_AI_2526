@@ -1,0 +1,20 @@
+@media screen and (max-width:800px) {
+
+    body {
+        font-size: clamp(24px, 1em, 2rem);
+    }
+
+    .grid {
+        grid-template-columns: 1fr 2fr;
+        row-gap: 1.5rem;
+    }
+
+    .noDisplay {
+        display: none;
+    }
+
+    .cote {
+        flex: 0.1
+    }
+
+}

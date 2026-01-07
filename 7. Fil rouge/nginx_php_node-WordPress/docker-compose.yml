@@ -1,0 +1,53 @@
+version: "3.9"
+services:
+# Le service 'db' a été supprimé car il est "existant" ailleurs.
+  php:
+      build: ./images/php
+      container_name: wp_php
+      restart: always
+      volumes:
+        - ./wordpress:/var/www/html
+      environment:
+        # On transmet les variables du .env au conteneur PHP
+        WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+        WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+        WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+        WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      networks:
+        - wp_network
+        - mysql_existant_net
+  nginx:
+    image: nginx:stable-alpine
+    container_name: wp_nginx
+    restart: always
+    ports:
+      - "${NGINX_PORT}:80"
+
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./images/nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+    depends_on:
+      - php
+    networks:
+      - wp_network
+
+  node:
+    build: ./images/node
+    container_name: wp_node
+
+    volumes:
+      - ./wordpress:/app
+    tty: true
+    networks:
+      - wp_network
+
+
+
+networks:
+  wp_network:
+    driver: bridge
+  # Déclaration du réseau où se trouve votre MySQL existant
+  mysql_existant_net:
+    external: true
+    name: php_mysql_phpmyadmin_default # <--- REMPLACEZ PAR LE VRAI NOM DU RÉSEAU

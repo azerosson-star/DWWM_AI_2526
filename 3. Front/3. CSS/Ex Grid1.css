@@ -10,7 +10,7 @@ div{
 .grid2x3{
     display: grid;
     grid-template-columns: 1fr  1fr ;
-    grid-template-rows: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 3fr 1fr ;
     /* on reparti l'espace en fraction proportionnelle */
     row-gap: 1rem;
     /* espace entre 2 lignes */
@@ -33,7 +33,6 @@ div{
 
 .jaune {
     background-color: yellow;
-    flex: 3;
 }
 
 .vert {

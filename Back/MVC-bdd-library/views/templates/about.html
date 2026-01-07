@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    À Propos - Librairie Solidaire
+{% endblock title %}
+
+{% block content %}
+<div class="bg-white shadow overflow-hidden rounded-lg p-6">
+    <h1 class="text-3xl font-bold text-gray-800 mb-4">Notre Mission</h1>
+    <p class="text-gray-600 leading-relaxed mb-6">
+        La Librairie Solidaire a été fondée avec pour mission de faciliter l'accès à la lecture 
+        pour tous. Grâce à notre système de gestion des prêts et des retours, nous assurons 
+        une circulation fluide de notre collection.
+    </p>
+
+    <h2 class="text-2xl font-semibold text-gray-800 mb-3">L'Architecture du Projet</h2>
+    <ul class="list-disc list-inside text-gray-600 space-y-2">
+        <li>Architecture MVC (Modèle-Vue-Contrôleur) avec Flask.</li>
+        <li>ORM SQLAlchemy pour la gestion des données MySQL.</li>
+        <li>Templates Jinja2 et styles modernes avec Tailwind CSS.</li>
+        <li>Authentification gérée par Flask-Login et un modèle User dédié.</li>
+    </ul>
+
+    <div class="mt-6 pt-4 border-t border-gray-200">
+        <p class="text-sm text-gray-500">
+            Cette application est un projet éducatif pour démontrer une architecture Flask complète.
+        </p>
+    </div>
+</div>
+{% endblock content %}

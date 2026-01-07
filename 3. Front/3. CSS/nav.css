@@ -1,0 +1,61 @@
+/**** MENU ***/
+
+body, nav, menu{
+    display: flex;
+    color: white;
+    flex: 1;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+menu a>div,
+menu>div { /* menu  avec a comme enfant et une div directement sous a 
+    ou menu avec une div suivi d'un a
+    
+    Defini les boutons au repos*/
+    padding: 1.2rem 0.4rem;
+    justify-content: center;
+    margin: 0.3rem 0.5rem;
+    background-color: #f1bfbf;
+    cursor: pointer;
+
+}
+
+menu .titreMenu,
+menu>a div {
+    border-radius: 5px;
+    color: black;
+}
+
+
+
+.sous-menu a>div {
+    padding: 0.8em 2rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    margin: 0;
+    color: black;
+}
+
+/* changement de couleur au survol */
+menu a>div:hover,
+menu>div:hover {
+    background-color: #a77676;
+}
+
+/* masque le sous menu */
+.sous-menu{
+    display: none;
+}
+
+/* montre le sous menu au survol de la div au dessus */
+nav div:hover .sous-menu {
+    display: block;
+}
+

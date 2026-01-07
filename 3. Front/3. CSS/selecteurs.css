@@ -1,0 +1,30 @@
+
+
+
+div {
+    border : 10px solid black;
+}
+
+p{
+    /* border: 1px red solid; */
+}
+
+/* div + h2 {
+    border: 1px red solid;
+} */
+
+#rouge{
+    border: 1px red solid;
+}
+
+input[type="text"]{
+     border: 10px blue solid;
+}
+*[data-toto]{
+    border: 10px solid yellow;
+}
+
+*[checked]
+{
+    width:  20px;
+}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto mt-8 p-6 bg-white shadow-xl rounded-lg">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">
+        {% if is_edit %}Modifier : {{ livre.titre }}{% else %}Ajouter un Nouveau Livre{% endif %}
+    </h2>
+    
+    <form method="POST" action="{% if is_edit %}{{ url_for('catalogue_bp.edit_add_livre', isbn=livre.isbn) }}{% else %}{{ url_for('catalogue_bp.edit_add_livre') }}{% endif %}" class="space-y-6">
+        
+        <div>
+            <label for="isbn" class="block text-sm font-medium text-gray-700">ISBN (13 caractères)</label>
+            <input type="text" name="isbn" id="isbn" required 
+                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 
+                    {% if is_edit %}bg-gray-100{% endif %}" 
+                    value="{{ livre.isbn if is_edit else (request.form.isbn if request.method == 'POST') }}"
+                    {% if is_edit %}readonly{% endif %}
+                    maxlength="17">
+            {% if is_edit %}<p class="text-xs text-gray-500 mt-1">L'ISBN ne peut pas être modifié.</p>{% endif %}
+        </div>
+
+        <div>
+            <label for="titre" class="block text-sm font-medium text-gray-700">Titre de l'Œuvre</label>
+            <input type="text" name="titre" id="titre" required 
+                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" 
+                    value="{{ livre.titre if is_edit else (request.form.titre if request.method == 'POST') }}">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label for="annee_publication" class="block text-sm font-medium text-gray-700">Année de Publication</label>
+                <input type="number" name="annee_publication" id="annee_publication" 
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" 
+                        value="{{ livre.annee_publication if is_edit else (request.form.annee_publication if request.method == 'POST') }}">
+            </div>
+            
+            <div>
+                <label for="auteurs" class="block text-sm font-medium text-gray-700">Auteur(s)</label>
+                <select name="auteurs" id="auteurs" multiple required
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 h-32">
+                    
+                    {% set current_auteur_ids = [a.id_auteur for a in livre.auteurs] if is_edit else [] %}
+                    
+                    {% for auteur in all_auteurs %}
+                        <option value="{{ auteur.id_auteur }}" 
+                                {% if auteur.id_auteur in current_auteur_ids %}selected{% endif %}>
+                            {{ auteur.nom }}, {{ auteur.prenom }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <p class="text-xs text-gray-500 mt-1">Maintenez CTRL/Cmd enfoncé pour sélectionner plusieurs auteurs.</p>
+            </div>
+        </div>
+
+        <div>
+            <label for="resume" class="block text-sm font-medium text-gray-700">Résumé</label>
+            <textarea name="resume" id="resume" rows="4" 
+                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">{% if is_edit %}{{ livre.resume }}{% else %}{{ request.form.resume if request.method == 'POST' }}{% endif %}</textarea>
+        </div>
+        
+        <div class="pt-5">
+            <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                {% if is_edit %}Sauvegarder les Modifications{% else %}Créer le Livre{% endif %}
+            </button>
+        </div>
+    </form>
+    
+    <div class="mt-4 text-center">
+        <a href="{{ url_for('catalogue_bp.list_livres') }}" class="text-sm text-gray-600 hover:text-gray-900">
+            Annuler et Retourner au Catalogue
+        </a>
+    </div>
+</div>
+{% endblock %}

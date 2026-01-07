@@ -1,0 +1,103 @@
+/* Appel d'une variable s'effectue en faisant "Var(--ColorTitle)" par exemple. */
+:root {
+    --color1: #F0EEED;
+    --color2:#d7821a;
+    --color3:#a3a1a0;
+    --color4:#F0EEED;
+    --color5:#332C39;
+    --color6:#A5EBF0;
+    --colordisabled:#65a9ad;
+
+    --inputCorrect: #609EA2;
+    --inputIncorrect: #e94f37;
+    --inputVide: #cde6f5;
+    --linkColor : black;
+}
+
+html, menu, main, body, div, a, header, footer, article, section, aside, fieldset, label, input, select {
+    display: flex;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+video, button {
+    width: 100%;
+}
+img {
+    width: auto;
+    height: 100%;
+}
+
+.colonne {
+    flex-direction: column;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Différent taille de flex. */
+.vMini { flex: 0.05; }
+
+.mini { flex: 0.2; }
+
+.demi { flex: 0.5; }
+
+.double { flex: 2; }
+
+.triple { flex: 3; }
+
+.espace {
+    flex: none;
+    height: 2vh;
+}
+
+.bigEspace {
+    flex: none;
+    height: 5vh;
+}
+
+.miniEspace {
+    flex: none;
+    height: 0.2vh;
+}
+.noDisplay{
+    display: none;
+}
+
+
+.absolu {
+    position: absolute;
+    top: 3rem;
+    left: 50rem;
+}
+
+.relative {
+    position: relative;
+}
+
+a {
+    text-decoration : none;
+    color : var(--linkColor);
+}
+
+.color1{
+    color: var(--color1);
+}
+.color2{
+    color: var(--color2);
+}
+.color5{
+    color: var(--color5);
+}
+.bgc4 {
+    background-color: var(--color4);
+}
+
+.bgc5{
+    background-color: var(--color2);
+    color: var(--color1);
+}
+

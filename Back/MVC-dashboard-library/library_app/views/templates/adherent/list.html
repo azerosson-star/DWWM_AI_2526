@@ -1,0 +1,77 @@
+{% extends "dashboard.html" %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div class="flex bg-gray-50">
+    
+    {% with active_page='adherents' %}
+        {% include 'includes/admin_sidebar.html' %}
+    {% endwith %}   
+
+    <main class="flex-1 overflow-y-auto p-6">
+        <div class="mx-auto">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <h2 class="text-3xl font-bold text-gray-800">Liste des Adhérents</h2>
+                <a href="{{ url_for('adherent_bp.add_adherent') }}" 
+                    class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md shadow-md transition duration-150">
+                    + Ajouter un Adhérent
+                </a>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom Prénom</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Adhésion</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Emprunts Actifs</th>
+                            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        {% for adherent in adherents %}
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ adherent.num_adherent }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ adherent.nom }} {{ adherent.prenom }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <p>{{ adherent.user.email if adherent.user else 'N/A' }}</p>
+                                <p class="text-xs text-gray-400">{{ adherent.telephone }}</p>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                {{ adherent.date_adhesion.strftime('%d/%m/%Y') }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-center">
+                                {% set count = adherent.get_emprunts_actifs() %}
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                                    {% if count >= 5 %} bg-red-100 text-red-800 
+                                    {% elif count > 0 %} bg-yellow-100 text-yellow-800 
+                                    {% else %} bg-green-100 text-green-800 
+                                    {% endif %}">
+                                    {{ count }} / 5
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2 text-center">
+                                <a href="{{ url_for('adherent_bp.edit_adherent', num_adherent=adherent.num_adherent) }}" 
+                                    class="text-indigo-600 hover:text-indigo-900">Modifier</a>
+
+                                <form method="POST" action="{{ url_for('adherent_bp.delete_adherent', num_adherent=adherent.num_adherent) }}" 
+                                    class="inline" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet adhérent ?');">
+                                    <button type="submit" class="text-red-600 hover:text-red-900">Supprimer</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% if not adherents %}
+            <p class="text-center text-gray-500 mt-8">Aucun adhérent trouvé.</p>
+            {% endif %}
+        </div>
+    </main>
+</div>
+{% endblock %}

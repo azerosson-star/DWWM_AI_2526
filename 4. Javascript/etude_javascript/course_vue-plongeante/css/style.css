@@ -1,0 +1,36 @@
+body { background: #333; color: white; font-family: sans-serif; text-align: center; }
+
+.race-track {
+    width: 80%;
+    margin: 50px auto;
+    background: #555;
+    border-right: 5px dashed white; /* Ligne d'arrivée */
+    padding: 20px 0;
+    position: relative;
+}
+
+.car {
+    font-size: 2rem;
+    margin: 20px 0;
+    width: 100px;
+    text-align: left;
+    position: relative; /* Nécessaire pour GSAP x */
+}
+
+.label { font-size: 0.8rem; display: block; }
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: #f1c40f;
+    border: none;
+    border-radius: 5px;
+}
+
+body { background: #222; color: white; font-family: sans-serif; overflow: hidden; }
+.container { text-align: center; margin-top: 20px; }
+.circuit-svg { width: 90%; max-width: 900px; margin: auto; border: 2px solid #444; }
+#route { stroke-dasharray: 10, 5; } /* Ligne blanche centrale */
+.car-group { cursor: pointer; }
+.obstacle { font-size: 25px; }
